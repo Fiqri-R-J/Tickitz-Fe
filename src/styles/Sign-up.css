@@ -1,0 +1,90 @@
+html,body{
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.background-login{
+    background-image: url('../../public/image/background.png');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background-login p{
+    position: absolute;
+    margin-top: 250px;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 58px;
+    letter-spacing: 0.003em;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.form-sign-up{
+    height: 100%; 
+    margin-top: 50px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-sign-up h2{
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 58px;
+    letter-spacing: 0.003em;
+    color: #121212;
+}
+
+.form-sign-up p{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.007em;
+    color: #AAAAAA;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+.form-sign-up .form-width{
+    width: 350px;
+}
+
+.form-sign-up .form-tabel{
+    background: #FCFDFE;
+    border: 1px solid #DEDEDE;
+    border-radius: 16px;
+    height: 50px;
+    
+}
+
+.form-sign-up .but{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.form-sign-up .accc{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 17px;
+    color: #999999;
+}
+
+.form-sign-up .sign-in{
+    text-decoration: none;
+    color:#5F2EEA;;
+}
+
+.form-sign-up .color{
+    background:#5F2EEA !important;
+    height: 50px;
+    border-radius: 16px;
+    margin-top: 10px;
+}
+
+.form-sign-up .text{
+    color: #F7F7FC;
+    text-decoration: none;
+}
