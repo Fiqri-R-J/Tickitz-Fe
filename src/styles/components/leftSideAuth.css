@@ -1,0 +1,33 @@
+#left-side-auth .left-side-auth {
+  background-color: aqua;
+  height: 100vh;
+  background-image: url("../../../public/images/image-auth.jpg");
+  background-size: cover;
+  margin: 0px;
+  padding: 0px;
+}
+
+#left-side-auth .overlay-background {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(43, 21, 107, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#left-side-auth .left-side-auth .left-side-group {
+  color: white;
+}
+#left-side-auth .left-side-auth .left-side-group p {
+  font-size: 35pt;
+}
+
+/* css for mobile */
+@media (max-width: 768px) {
+  #sign-in .overlay-background img {
+    width: 250px;
+  }
+  #sign-in .overlay-background .left-side-group p {
+    font-size: 23pt;
+  }
+}
