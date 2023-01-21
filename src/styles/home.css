@@ -160,6 +160,11 @@
   overflow-x: scroll;
 }
 
+#join-member {
+  margin-top: 110px;
+  margin-bottom: 70px;
+}
+
 #join-member .join-member {
   box-shadow: 1px 9px 22px 6px rgba(201, 201, 201, 1);
   -webkit-box-shadow: 1px 9px 22px 6px rgba(201, 201, 201, 1);
@@ -186,10 +191,6 @@
 
 .color-footer {
   color: #4e4b66;
-}
-
-#footer {
-  margin: 170px 0px 40px 0px;
 }
 
 /* css for mobile */
@@ -267,16 +268,5 @@
 
   #join-member {
     padding: 0px 10px 0px 10px;
-  }
-
-  #footer {
-    margin-top: 100px;
-    text-align: center;
-  }
-
-  #footer .list-group {
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 }

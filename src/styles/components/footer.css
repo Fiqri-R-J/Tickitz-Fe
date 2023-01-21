@@ -1,0 +1,16 @@
+#footer {
+  margin: 170px 0px 40px 0px;
+}
+
+@media (max-width: 768px) {
+  #footer {
+    margin-top: 100px;
+    text-align: center;
+  }
+
+  #footer .list-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
