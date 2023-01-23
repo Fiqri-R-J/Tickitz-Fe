@@ -3,13 +3,23 @@ html,body{
     overflow-x: hidden;
 }
 
+#register{
+    height: 100vh;
+}
+
 .background-login{
+    position: relative;
     background-image: url('../../public/image/background.png');
     background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+.background-login img{
+    position: relative;
+}
+
 
 .background-login p{
     position: absolute;
@@ -31,7 +41,7 @@ html,body{
 
 .form-sign-up h2{
     font-weight: 600;
-    font-size: 48px;
+    font-size: 35pt;
     line-height: 58px;
     letter-spacing: 0.003em;
     color: #121212;
@@ -48,14 +58,14 @@ html,body{
 }
 
 .form-sign-up .form-width{
-    width: 350px;
+    width: 300px;
 }
 
 .form-sign-up .form-tabel{
     background: #FCFDFE;
     border: 1px solid #DEDEDE;
-    border-radius: 16px;
     height: 50px;
+    margin-top: -15px !important;
     
 }
 
@@ -87,4 +97,14 @@ html,body{
 .form-sign-up .text{
     color: #F7F7FC;
     text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .tickitz{
+        height: 200px;
+        width: 400px;
+    }
+    .background-login{
+        height: 100vh;
+    }
 }
