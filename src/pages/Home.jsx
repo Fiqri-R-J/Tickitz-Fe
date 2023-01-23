@@ -7,6 +7,8 @@ import imgCta3 from "../images/home-page/cta-3.jpg";
 import mShowing1 from "../images/home-page/movies-showing-1.jpg";
 import MonthTab from "../components/atoms/MonthTab";
 import Footer from "../components/organisms/Footer";
+import CardMovie from "../components/molecules/CardMovie";
+import CardMovieData from "../components/molecules/CardMovieData";
 
 function Home() {
   return (
@@ -56,13 +58,7 @@ function Home() {
 
           <div className="row row-horizontal-scroll p-3 mt-4">
             {[...new Array(8)].map((value, key) => {
-              return (
-                <div key={key} className="card card-movies">
-                  <div className="card-body">
-                    <img src={mShowing1} className="d-block" alt="..." />
-                  </div>
-                </div>
-              );
+              return <CardMovie srcImage={mShowing1} />;
             })}
           </div>
         </div>
@@ -89,20 +85,7 @@ function Home() {
 
           <div className="row row-horizontal-scroll p-3">
             {[...new Array(8)].map((value, key) => {
-              return (
-                <div key={key} className="card card-movies">
-                  <div className="card-body">
-                    <img src={mShowing1} className="d-block" alt="..." />
-                  </div>
-                  <div className="card-footer">
-                    <h6>Black Widow</h6>
-                    <p>Action, Adventure, Sci-Fi</p>
-                    <button className="btn-details btn btn-outline-primary mt-2">
-                      Details
-                    </button>
-                  </div>
-                </div>
-              );
+              return <CardMovieData srcImage={mShowing1} />;
             })}
           </div>
         </div>
