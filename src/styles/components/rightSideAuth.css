@@ -1,0 +1,25 @@
+#right-side-auth .right-side-auth {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#right-side-auth .right-side-auth .right-side-group {
+  padding: 50px;
+}
+
+#right-side-auth .right-side-auth .right-side-group input[type="text"],
+input[type="password"] {
+  height: 50px;
+  font-size: 11pt;
+}
+
+#right-side-auth .right-side-auth .right-side-group p {
+  color: #aaa;
+}
+
+#right-side-auth .right-side-auth .right-side-group .menu span {
+  text-decoration: underline;
+  color: #5f2eea;
+}
