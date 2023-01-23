@@ -44,7 +44,9 @@ function Home() {
           <div className="row">
             <div className="col-lg-12 mt-5 col-12">
               <div className="float-start">
-                <h3 className="text-underline color-primary">Now Showing</h3>
+                <h3 className="text-underline color-primary title-section">
+                  Now Showing
+                </h3>
               </div>
               <div className="float-end">
                 <h6 className="color-primary">View All</h6>
@@ -73,7 +75,7 @@ function Home() {
           <div className="row">
             <div className="col-lg-12 mt-5 col-12">
               <div className="float-start">
-                <h3 className="">Upcoming Movies</h3>
+                <h3 className="title-section">Upcoming Movies</h3>
               </div>
               <div className="float-end">
                 <h6 className="color-primary">View All</h6>

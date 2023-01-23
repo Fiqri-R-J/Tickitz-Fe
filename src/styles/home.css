@@ -1,3 +1,12 @@
+#home {
+  font-family: "Mulish";
+}
+
+#home h6,
+#home h5 {
+  font-weight: 600;
+}
+
 #cta {
   padding-top: 100px;
   /* background-color: grey; */
@@ -31,7 +40,7 @@
 #cta .title-cta {
   font-size: 38pt;
   color: #5f2eea;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 60px;
 }
 
@@ -40,6 +49,10 @@
   color: #5f2eea;
   font-weight: 500;
   line-height: 60px;
+}
+
+#home .title-section {
+  font-weight: 600;
 }
 
 #cta .right-side-cta {
