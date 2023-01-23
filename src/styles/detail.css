@@ -1,0 +1,101 @@
+#detail-movie {
+  font-family: "Mulish";
+}
+
+#detail-movie h2 {
+  font-weight: 600;
+}
+
+#detail-movie .mini-title {
+  font-size: 11pt;
+  color: #8692a6;
+  margin-bottom: 5px;
+}
+
+#detail-movie .synopsis-description {
+  font-size: 11pt;
+  color: #4e4b66;
+  line-height: 30px;
+}
+
+#data-movie {
+  margin-top: 140px;
+  padding-bottom: 70px;
+}
+
+#data-movie .card-movies {
+  height: 500px;
+  width: 90%;
+}
+
+#data-movie .card-movies .card-body img {
+  width: 250px;
+  height: 410px;
+}
+
+#showtime-movie {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  background-color: #f5f6f8;
+}
+
+#showtime-movie .showtime {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#showtime-movie .title-cinema {
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+#showtime-movie .address-cinema {
+  font-size: 11pt;
+  color: #6e7191;
+  font-weight: 100;
+}
+
+#showtime-movie .card-schedule .time {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 11pt;
+}
+
+#showtime-movie .btn-booking {
+  border: 1px solid #5f2eea;
+  background-color: #5f2eea;
+  color: white;
+  margin: 20px 0px 20px 0px;
+  width: 100%;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  #data-movie {
+    margin-top: 90px;
+    /* padding-bottom: 70px; */
+  }
+
+  #data-movie .image-movie-data {
+    display: flex;
+    justify-content: center;
+    /* padding-bottom: 70px; */
+  }
+
+  #data-movie .data-movie-description {
+    padding-top: 30px;
+  }
+
+  #showtime-movie .title-cinema {
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-top: 25px;
+  }
+
+  #showtime-movie .card-footer h5 {
+    padding-right: 0.5rem !important;
+  }
+}

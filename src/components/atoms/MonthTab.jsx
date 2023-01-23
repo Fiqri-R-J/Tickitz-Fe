@@ -22,13 +22,14 @@ function MonthTab() {
         key={key}
         className="me-3"
         style={{
-          border: "1px solid black",
+          border: "1px solid #5f2eea",
           padding: "10px 30px 10px 30px",
           width: "130px",
           textAlign: "center",
           borderRadius: "5px",
-          backgroundColor: "#5f2eea",
-          color: "white",
+          // backgroundColor: "#5f2eea",
+          // color: "white",
+          color: "#5f2eea",
         }}
       >
         {value}
