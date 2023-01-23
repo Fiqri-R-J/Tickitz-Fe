@@ -1,6 +1,10 @@
+#left-side-auth {
+  height: 100vh;
+}
+
 #left-side-auth .left-side-auth {
   background-color: aqua;
-  height: 100vh;
+  height: 100%;
   background-image: url("../../../public/images/image-auth.jpg");
   background-size: cover;
   margin: 0px;
