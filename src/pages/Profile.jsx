@@ -17,12 +17,20 @@ function Profile() {
     dispatch(
       authReducer.setAuth({
         data: null,
-        id: null,
+        isAuth: null,
       })
     );
     localStorage.clear();
     navigate("/");
   };
+
+  React.useEffect(() => {
+    {
+      if (!auth.isAuth) {
+        navigate("/login");
+      }
+    }
+  }, []);
 
   return (
     <div id="profile">
