@@ -99,6 +99,10 @@
   -moz-box-shadow: 16px 26px 21px -10px rgba(162, 162, 162, 0.69);
 }
 
+.click {
+  cursor: pointer;
+}
+
 .card-movies .card-body img {
   width: 170px;
   height: 250px;
