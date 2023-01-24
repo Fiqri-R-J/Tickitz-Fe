@@ -74,7 +74,11 @@ function Navbar() {
                   >
                     <img
                       className="me-2 mx-auto user-profile-picture"
-                      src={`https://res.cloudinary.com/daouvimjz/image/upload/${auth?.data?.profilePicture}`}
+                      src={
+                        auth?.data?.profilePicture.includes("https")
+                          ? `${auth?.data?.profilePicture}`
+                          : `https://res.cloudinary.com/daouvimjz/image/upload/${auth?.data?.profilePicture}`
+                      }
                       width={"40px"}
                       height={"40px"}
                       alt="profile"

@@ -32,7 +32,6 @@ function RightSideAuth() {
         setSuccess(true);
 
         setSuccessMsg(res?.data?.message);
-        localStorage.setItem("dataauth", res?.data?.data?.users_id);
 
         // store data auth to redux
         dispatch(
