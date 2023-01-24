@@ -8,6 +8,8 @@ function RightSideAuth() {
   const register = () => navigate("/sign-up");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
+  const [errorMsg, setErrorMsg] = useState(false);
 
   const login = () => {
     const data = {
@@ -22,7 +24,14 @@ function RightSideAuth() {
         console.log(res);
       })
       .catch((err) => {
-        console.log(err);
+        setError(true);
+        setErrorMsg(
+          err?.response?.data?.message?.email?.message ||
+            err?.response?.data?.message?.password?.message ||
+            err?.response?.data?.message?.message ||
+            "Error! Please try again."
+        );
+        console.log(err.response.data);
       })
       .finally(() => {});
   };
@@ -35,6 +44,18 @@ function RightSideAuth() {
           <p>
             Sign in with your data that you entered during your registration
           </p>
+
+          {error ? (
+            <div
+              class="alert alert-danger"
+              style={{ marginBottom: "-30px" }}
+              role="alert"
+            >
+              {errorMsg}
+            </div>
+          ) : (
+            ""
+          )}
 
           <div className="form-group mt-5">
             <label htmlFor="email">Email</label>

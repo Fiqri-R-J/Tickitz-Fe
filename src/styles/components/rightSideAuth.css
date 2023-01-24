@@ -27,3 +27,7 @@
 .menu-cursor {
   cursor: pointer;
 }
+
+/* css for mobile */
+@media (max-width: 768px) {
+}
