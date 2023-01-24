@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import * as authReducer from "../../stores/auth/index";
 
 function RightSideAuth() {
   const [isShowPassword, setIsShowPassword] = useState(false);
@@ -10,20 +12,43 @@ function RightSideAuth() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
   const [errorMsg, setErrorMsg] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [successMsg, setSuccessMsg] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useDispatch();
 
   const login = () => {
+    setIsLoading(true);
     const data = {
       email,
       password,
     };
 
-    console.log(data);
     axios
       .post(`${process.env.REACT_APP_URL_BACKEND}/auth/login`, data)
       .then((res) => {
-        console.log(res);
+        // set status success
+        setError(false);
+        setSuccess(true);
+
+        setSuccessMsg(res?.data?.message);
+        localStorage.setItem("dataauth", res?.data?.data?.users_id);
+
+        // store data auth to redux
+        dispatch(
+          authReducer.setAuth({
+            data: res?.data?.data,
+            isAuth: true,
+          })
+        );
+
+        // redirect to home page
+        navigate("/");
+        setIsLoading(false);
       })
       .catch((err) => {
+        setIsLoading(false);
+        setSuccess(false);
         setError(true);
         setErrorMsg(
           err?.response?.data?.message?.email?.message ||
@@ -31,9 +56,8 @@ function RightSideAuth() {
             err?.response?.data?.message?.message ||
             "Error! Please try again."
         );
-        console.log(err.response.data);
       })
-      .finally(() => {});
+      .finally(() => setIsLoading(false));
   };
 
   return (
@@ -45,13 +69,25 @@ function RightSideAuth() {
             Sign in with your data that you entered during your registration
           </p>
 
-          {error ? (
+          {error === true ? (
             <div
-              class="alert alert-danger"
+              className="alert alert-danger"
               style={{ marginBottom: "-30px" }}
               role="alert"
             >
               {errorMsg}
+            </div>
+          ) : (
+            ""
+          )}
+
+          {success === true ? (
+            <div
+              className="alert alert-success"
+              style={{ marginBottom: "-30px" }}
+              role="alert"
+            >
+              {successMsg}
             </div>
           ) : (
             ""
@@ -93,9 +129,20 @@ function RightSideAuth() {
             </label>
           </div>
 
-          <button className="btn btn-primary mt-4 w-100" onClick={login}>
-            Sign In
-          </button>
+          {isLoading ? (
+            <button className="btn btn-primary mt-4 w-100" disabled>
+              <div className="spinner-border text-light" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </div>
+            </button>
+          ) : (
+            <button
+              className="btn btn-primary mt-4 w-100"
+              onClick={() => login()}
+            >
+              Sign In
+            </button>
+          )}
 
           <div className="menu mt-5 text-center">
             <p>

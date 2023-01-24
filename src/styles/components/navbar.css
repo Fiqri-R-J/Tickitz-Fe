@@ -9,6 +9,10 @@
   /* font-family: "Mulish"; */
 }
 
+#navbar .user-profile-picture {
+  border-radius: 50%;
+}
+
 #navbar-home #navbar {
   position: fixed;
 }
@@ -21,6 +25,10 @@
 
 #navbar-home #navbar .nav-item .nav-link {
   font-weight: 600;
+}
+
+#navbar .logout {
+  cursor: pointer;
 }
 
 /* css for mobile */

@@ -6,6 +6,8 @@ import Detail from "./pages/Movies/Detail";
 import Profile from "./pages/Profile";
 import SignUp from "./pages/Sign-up";
 import ViewMovie from "./pages/View-movie";
+import { Provider } from "react-redux";
+import store from "./stores/index";
 
 function App() {
   const router = createBrowserRouter([
@@ -35,7 +37,11 @@ function App() {
     },
   ]);
 
-  return <RouterProvider router={router} />;
+  return (
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
+  );
 }
 
 export default App;
