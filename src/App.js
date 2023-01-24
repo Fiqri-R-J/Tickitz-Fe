@@ -4,6 +4,7 @@ import Login from "./pages/auth/Login";
 import Home from "./pages/Home";
 import Detail from "./pages/Movies/Detail";
 import SignUp from "./pages/Sign-up";
+import ViewMovie from "./pages/View-movie";
 
 function App() {
   const router = createBrowserRouter([
@@ -22,6 +23,10 @@ function App() {
     {
       path: "/detail/:id",
       element: <Detail />,
+    },
+    {
+      path: "/view-movie",
+      element: <ViewMovie />,
     },
   ]);
 
