@@ -1,112 +1,116 @@
-#body{
-    background-color: #E5E5E5;
+#body {
+  background-color: #e5e5e5;
 }
 
-#bodyy{
-    padding-top: 100px;
+#body #movie .card-movies .card-footer {
+  background-color: white;
 }
 
-#bodyy .list h2{
-    font-family: 'Mulish';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 30px;
-    letter-spacing: 0.25px;
-    color: #000000;
+#bodyy {
+  padding-top: 100px;
 }
 
-#bodyy .sort{
-    border: 1px solid #DEDEDE;
-    border-radius: 16px;
-    color: #4E4B66;
+#bodyy .list h2 {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: 0.25px;
+  color: #000000;
+}
+
+#bodyy .sort {
+  border: 1px solid #dedede;
+  border-radius: 16px;
+  color: #4e4b66;
 }
 
 .row-horizontal-scroll {
-    flex-wrap: unset !important;
-    overflow-x: hidden;
-  }
-  
-  .row-horizontal-scroll:hover {
-    overflow-x: scroll;
-  }
-  
-#movie{
-    border: 1px solid white;
-    border-radius: 10px;
-    margin-top: 15px;
-    background-color: #f5f6f8;
-    box-shadow: 16px 26px 21px -10px rgba(162, 162, 162, 0.69);
-    -webkit-box-shadow: 16px 26px 21px -10px rgba(162, 162, 162, 0.69);
-    -moz-box-shadow: 16px 26px 21px -10px rgba(162, 162, 162, 0.69);
+  flex-wrap: unset !important;
+  overflow-x: hidden;
 }
 
-#movie .card{
-    padding: 10px;
-    /* margin-top: 20px; */
+.row-horizontal-scroll:hover {
+  overflow-x: scroll;
+}
+
+#movie {
+  border: 1px solid white;
+  border-radius: 10px;
+  margin-top: 15px;
+  background-color: #f5f6f8;
+  box-shadow: 16px 26px 21px -10px rgba(162, 162, 162, 0.69);
+  -webkit-box-shadow: 16px 26px 21px -10px rgba(162, 162, 162, 0.69);
+  -moz-box-shadow: 16px 26px 21px -10px rgba(162, 162, 162, 0.69);
+}
+
+#movie .card {
+  padding: 10px;
+  /* margin-top: 20px; */
 }
 
 .card-movies .card-body img {
-    width: 170px;
-    height: 250px;
-    border-radius: 10px;
-  }
-  .card-movies .card-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .card-movies .card-footer {
-    text-align: center;
-    margin-bottom: 20px;
-    background-color: #f5f6f8;
-    border-top: 0px;
-  }
-  
-  .card-movies .card-footer p,
-  .card-movies .card-footer h6 {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    text-shadow: 3px 0px 5px rgba(0, 0, 0, 0.29);
-  }
-
-.page{
-    padding: 20px;
-    margin-top: 15px;
-    margin-bottom: 15px;
+  width: 170px;
+  height: 250px;
+  border-radius: 10px;
+}
+.card-movies .card-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.page li{
-    margin-left: 5px;
-    margin-right: 5px;
+.card-movies .card-footer {
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: #f5f6f8;
+  border-top: 0px;
 }
 
-.page a{
-    background: #FFFFFF;
-    border: 0.5px solid #DEDEDE;
-    border-radius: 8px;
-    font-family: 'Mulish';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 34px;
-    letter-spacing: 0.75px;
-    color: #4E4B66;
+.card-movies .card-footer p,
+.card-movies .card-footer h6 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  text-shadow: 3px 0px 5px rgba(0, 0, 0, 0.29);
 }
 
-.page a:hover{
-    background: #5F2EEA;
-    box-shadow: 0px 8px 16px rgba(95, 46, 234, 0.24);
-    font-family: 'Mulish';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 34px;
-    letter-spacing: 0.75px;
-    color: #FFFFFF;
-    border-radius: 8px;
+.page {
+  padding: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.page li {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.page a {
+  background: #ffffff;
+  border: 0.5px solid #dedede;
+  border-radius: 8px;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 34px;
+  letter-spacing: 0.75px;
+  color: #4e4b66;
+}
+
+.page a:hover {
+  background: #5f2eea;
+  box-shadow: 0px 8px 16px rgba(95, 46, 234, 0.24);
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 34px;
+  letter-spacing: 0.75px;
+  color: #ffffff;
+  border-radius: 8px;
 }

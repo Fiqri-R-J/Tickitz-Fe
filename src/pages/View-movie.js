@@ -50,11 +50,10 @@ function ViewMovie() {
             <MonthTab />
           </div>
           <section id="movie">
-            <div class="row">
+            <div class="row p-5">
               {[...new Array(8)].map((value, key) => {
                 return (
-                  <div class="col-3 card">
-                    {" "}
+                  <div class="col-3 mb-4">
                     <CardMovieData srcImage={mShowing1} />
                   </div>
                 );
