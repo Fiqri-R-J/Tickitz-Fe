@@ -45,7 +45,11 @@ function Profile() {
                   <label className="p-2 info">INFO</label>
                   <div className="profile-data mt-2">
                     <img
-                      src={`https://res.cloudinary.com/daouvimjz/image/upload/${auth?.data?.profilePicture}`}
+                      src={
+                        auth?.data?.profilePicture.includes("https")
+                          ? `${auth?.data?.profilePicture}`
+                          : `https://res.cloudinary.com/daouvimjz/image/upload/${auth?.data?.profilePicture}`
+                      }
                       alt="profile-image"
                     />
                     <h5 className="mt-4">{auth?.data?.username}</h5>
