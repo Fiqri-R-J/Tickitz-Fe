@@ -7,7 +7,9 @@ import Profile from "./pages/Profile";
 import SignUp from "./pages/Sign-up";
 import ViewMovie from "./pages/View-movie";
 import { Provider } from "react-redux";
-import store from "./stores/index";
+import store, { persistor } from "./stores/index";
+//import redux-persist
+import { PersistGate } from "redux-persist/integration/react";
 
 function App() {
   const router = createBrowserRouter([
@@ -39,7 +41,9 @@ function App() {
 
   return (
     <Provider store={store}>
-      <RouterProvider router={router} />
+      <PersistGate loading={null} persistor={persistor}>
+        <RouterProvider router={router} />
+      </PersistGate>
     </Provider>
   );
 }
