@@ -5,7 +5,7 @@ import icon_navbar from "../../images/icon-navbar-tickitz.png";
 
 function Navbar() {
   const [showNavbar, setShowNavbar] = useState(false);
-  // console.log(showNavbar);
+  const navigate = useNavigate();
   return (
     <div id="navbar-home">
       <nav id="navbar" className="navbar navbar-expand-lg fixed-top">
@@ -61,9 +61,9 @@ function Navbar() {
             <div className="nav-link">
               <button
                 className="btn btn-login"
-                // onClick={() => {
-                //   navigate("/login");
-                // }}
+                onClick={() => {
+                  navigate("/login");
+                }}
               >
                 Login
               </button>

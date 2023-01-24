@@ -1,0 +1,96 @@
+#profile {
+  font-family: "Mulish";
+  background-color: #f5f6f8;
+}
+
+#profile label {
+  font-size: 10pt;
+}
+
+#profile .info {
+  color: #4e4b66;
+}
+
+#profile #footer {
+  padding-top: 100px;
+}
+
+#profile #content {
+  padding-top: 130px;
+}
+
+#profile #content input[type="text"],
+#profile #content input[type="password"] {
+  height: 40px;
+  font-size: 10pt;
+}
+
+#profile #content .btn-update-information {
+  border: 1px solid #5f2eea !important;
+  background-color: #5f2eea !important;
+  color: white;
+  width: 30%;
+  margin: -12px;
+}
+
+#profile #content .menu-profile {
+  padding-left: 30px;
+}
+
+#profile #content .menu-profile button {
+  border: 0px solid #5f2eea !important;
+  background-color: white;
+  height: 50px;
+  font-size: 11pt;
+}
+
+.color-aaa {
+  color: #aaaaaa;
+}
+
+#profile .card-profile .card-body .profile-data {
+  width: 100%;
+  margin-top: -10px;
+  text-align: center;
+}
+
+#profile .card-profile .card-body img {
+  width: 50%;
+  border-radius: 50%;
+  box-shadow: 5px 4px 8px -3px rgba(129, 129, 129, 0.75);
+  -webkit-box-shadow: 5px 4px 8px -3px rgba(129, 129, 129, 0.75);
+  -moz-box-shadow: 5px 4px 8px -3px rgba(129, 129, 129, 0.75);
+}
+
+#profile .card-profile .card-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+#profile .card-profile .card-footer .btn-logout {
+  border: 1px solid #5f2eea !important;
+  background-color: #5f2eea !important;
+  color: white;
+  width: 70%;
+}
+
+@media (max-width: 768px) {
+  #profile #content {
+    padding-top: 100px;
+  }
+
+  #profile #content .card-profile {
+    margin-bottom: 40px;
+  }
+
+  #profile #content .right-side {
+    padding: 0px 25px 0px 25px;
+  }
+
+  #profile #content .btn-update-information {
+    width: 100%;
+    margin: 0px;
+  }
+}
