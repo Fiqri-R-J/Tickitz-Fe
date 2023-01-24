@@ -2,6 +2,7 @@ import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./pages/auth/Login";
 import Home from "./pages/Home";
+import Detail from "./pages/Movies/Detail";
 import SignUp from "./pages/Sign-up";
 import ViewMovie from "./pages/View-movie";
 
@@ -18,6 +19,10 @@ function App() {
     {
       path: "/",
       element: <Home />,
+    },
+    {
+      path: "/detail/:id",
+      element: <Detail />,
     },
     {
       path: "/view-movie",
