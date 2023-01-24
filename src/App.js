@@ -21,6 +21,10 @@ function App() {
       element: <Home />,
     },
     {
+      path: "/view-movie",
+      element: <ViewMovie />,
+    },
+    {
       path: "/detail/:id",
       element: <Detail />,
     },

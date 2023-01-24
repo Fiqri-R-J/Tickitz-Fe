@@ -9,8 +9,10 @@ import MonthTab from "../components/atoms/MonthTab";
 import Footer from "../components/organisms/Footer";
 import CardMovie from "../components/molecules/CardMovie";
 import CardMovieData from "../components/molecules/CardMovieData";
+import { Link, useNavigate } from "react-router-dom";
 
 function Home() {
+  const navigate = useNavigate();
   return (
     <div id="home">
       <Navbar />
@@ -51,7 +53,12 @@ function Home() {
                 </h3>
               </div>
               <div className="float-end">
-                <h6 className="color-primary">View All</h6>
+                <h6
+                  className="color-primary click"
+                  onClick={() => navigate("/view-movie")}
+                >
+                  View All
+                </h6>
               </div>
             </div>
           </div>
@@ -74,7 +81,12 @@ function Home() {
                 <h3 className="title-section">Upcoming Movies</h3>
               </div>
               <div className="float-end">
-                <h6 className="color-primary">View All</h6>
+                <h6
+                  className="color-primary click"
+                  onClick={() => navigate("/view-movie")}
+                >
+                  View All
+                </h6>
               </div>
             </div>
           </div>
