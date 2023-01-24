@@ -33,6 +33,10 @@ function App() {
       path: "/profile",
       element: <Profile />,
     },
+    {
+      path: "/view-movie",
+      element: <ViewMovie />,
+    },
   ]);
 
   return <RouterProvider router={router} />;
