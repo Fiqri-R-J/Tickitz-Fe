@@ -2,10 +2,27 @@ import React, { useState } from "react";
 import Navbar from "../components/organisms/Navbar";
 import Footer from "../components/organisms/Footer";
 import "../styles/profile.css";
+import { useDispatch, useSelector } from "react-redux";
+import * as authReducer from "../stores/auth/index";
+import { useNavigate } from "react-router-dom";
 
 function Profile() {
   const [isShowPassword, setIsShowPassword] = useState(false);
   const [isShowConfirmPassword, setIsShowConfirmPassword] = useState(false);
+  const auth = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const logout = () => {
+    dispatch(
+      authReducer.setAuth({
+        data: null,
+        id: null,
+      })
+    );
+    localStorage.clear();
+    navigate("/");
+  };
 
   return (
     <div id="profile">
@@ -20,15 +37,18 @@ function Profile() {
                   <label className="p-2 info">INFO</label>
                   <div className="profile-data mt-2">
                     <img
-                      src="https://www.omgtb.com/wp-content/uploads/2021/04/620_NC4xNjE-1-scaled.jpg"
+                      src={`https://res.cloudinary.com/daouvimjz/image/upload/${auth?.data?.profilePicture}`}
                       alt="profile-image"
                     />
-                    <h5 className="mt-4">Jonas El Rodriguez</h5>
+                    <h5 className="mt-4">{auth?.data?.username}</h5>
                     <p>Moviegoers</p>
                   </div>
                 </div>
                 <div className="card-footer">
-                  <button className="btn btn-primary btn-logout mt-2 mb-2">
+                  <button
+                    className="btn btn-primary btn-logout mt-2 mb-2"
+                    onClick={logout}
+                  >
                     Logout
                   </button>
                 </div>

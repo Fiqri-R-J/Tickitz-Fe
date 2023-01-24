@@ -9,7 +9,7 @@ import Footer from "../components/organisms/Footer.jsx";
 function ViewMovie() {
   return (
     <div>
-      <div id="body">
+      <div id="body-view-movie">
         <div class="container">
           <div>
             <Navbar />
