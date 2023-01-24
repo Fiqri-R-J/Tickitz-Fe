@@ -28,6 +28,10 @@ function App() {
       path: "/detail/:id",
       element: <Detail />,
     },
+    {
+      path: "/view-movie",
+      element: <ViewMovie />,
+    },
   ]);
 
   return <RouterProvider router={router} />;
