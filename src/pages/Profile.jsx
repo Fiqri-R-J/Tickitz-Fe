@@ -73,26 +73,30 @@ function Profile() {
 
                       <div>
                         <div className="row mt-4">
-                          <div className="form-group col-lg-6">
-                            <label htmlFor="">First Name</label>
-                            <input type="text" className="form-control" />
+                          <div className="form-group col-lg-6 mb-3">
+                            <label htmlFor="">Username</label>
+                            <input
+                              type="text"
+                              className="form-control"
+                              placeholder={auth?.data?.username}
+                            />
                           </div>
-                          <div className="form-group col-lg-6">
-                            <label htmlFor="">Last Name</label>
-                            <input type="text" className="form-control" />
-                          </div>
-                          <div className="form-group col-lg-6 mt-3">
+                          <div className="form-group col-lg-6 mb-3">
                             <label htmlFor="">E-mail</label>
-                            <input type="text" className="form-control" />
+                            <input
+                              type="text"
+                              className="form-control"
+                              placeholder={auth?.data?.email}
+                            />
                           </div>
-                          <div className="form-group col-lg-6 mt-3">
+                          <div className="form-group col-lg-6 ">
                             <label htmlFor="">Phone Number</label>
                             <div className="input-group mb-3">
                               <span className="input-group-text">+62</span>
                               <input
                                 type="text"
                                 className="form-control"
-                                placeholder="xxx"
+                                placeholder={auth?.data?.email}
                               />
                             </div>
                           </div>

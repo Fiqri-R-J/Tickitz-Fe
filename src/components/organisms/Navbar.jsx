@@ -82,7 +82,7 @@ function Navbar() {
                     <span>{auth?.data?.name}</span>
                   </button>
                   <ul className="dropdown-menu">
-                    <li className="m-2">
+                    <li className="m-2 ms-2">
                       <span
                         className="logout"
                         onClick={() => {
@@ -113,7 +113,7 @@ function Navbar() {
                 </div>
               </div>
             ) : (
-              <div className="nav-link">
+              <div className="nav-link text-center">
                 <button
                   className="btn btn-login"
                   onClick={() => {
