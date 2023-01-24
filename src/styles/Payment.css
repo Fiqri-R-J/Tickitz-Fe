@@ -1,0 +1,207 @@
+#payment{
+    background-color: #e5e5e5;
+}
+
+#payment-page{
+    margin-top: 20px !important;
+}
+
+.left .borders{
+    margin-top: 30px;
+    border: 2px;
+    border-radius: 6px;
+    background-color: #ffffff;
+}
+
+.left .table .left-table{
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    text-align: left;
+    letter-spacing: 0.25px;
+    margin-top: 40px;
+    padding-top: 25px;
+    color: #6B6B6B;
+}
+
+.left .table .right-table{
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    text-align: right;
+    letter-spacing: 0.25px;
+    margin-top: 20px;
+    color: #000000;
+}
+
+.left .table .right-tables{
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 25px;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    letter-spacing: 0.25px;
+    color: #000000;
+}
+
+.right .borders{
+    margin-top: 10px;
+    border: 2px;
+    border-radius: 6px;
+    background-color: #ffffff;
+    width: 400px;
+    height: 500px;
+    margin-left: 50px;
+}
+
+.right h2{
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: 0.25px;
+    color: #000000;
+    margin-bottom: 40px!important;
+}
+
+.right .form-data{
+    margin-top: 40px;
+}
+
+.right .borders .info{
+    margin-top: 10px;
+    padding-left: 50px;
+}
+
+.right .form-data .box-data{
+    width: 300px;
+    height: 55px;
+}
+
+.right .correct{
+    background: rgba(244, 183, 64, 0.3)!important;
+    border-radius: 4px;
+    width: 300px;
+    height: 55px;
+}
+
+.form-data .correct h2{
+    margin-left: 90px;
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.5px;
+    color: #4E4B66;
+}
+
+.form-data .correct img{
+    position: absolute;
+    margin-left: 20px;
+    width: 30px;
+    height: 20px;
+}
+
+#payment-by{
+    margin-top: -70px!important;
+}
+
+#payment-by .border-pay{
+    border: 2px;
+    background: #FFFFFF;
+    border-radius: 6px;
+    width: 700px;
+    height: 300px;
+}
+
+.border-pay .button-border{
+    width: 150px;
+    height: 50px;
+    box-sizing: border-box;
+    border: 2px solid #DEDEDE;
+    border-radius: 8px;
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+#payment-by .line{
+    border: 1px solid #DEDEDE;
+    transform: rotate(180deg);
+    width: 280px;
+    margin-top: 50px;
+}
+
+#payment-by .mid{
+    position: absolute;
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.75px;
+    color: #A0A3BD;
+    margin-top: 35px;
+}
+
+#payment-by .cash p{
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: center;
+    letter-spacing: 0.75px;
+    color: #6E7191;
+    margin-top: 40px;
+}
+
+#payment-by .cash span{
+    color:  #5F2EEA; 
+}
+
+#payment-by .but-next .next-prev{
+    box-sizing: border-box;
+    border: 2px solid #5F2EEA;
+    border-radius: 4px;
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: center;
+    letter-spacing: 0.75px;
+    color: #5F2EEA;
+    width: 200px;
+    height: 50px;
+}
+
+#payment-by .but-next .next-prev:hover{
+    background: #5F2EEA;
+    border-radius: 4px;
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: center;
+    letter-spacing: 0.75px;
+    color: #F7F7FC
+}
+
+#payment-by .but-next .next{
+    margin-right: 40px!important;
+}

@@ -6,6 +6,7 @@ import Detail from "./pages/Movies/Detail";
 import Profile from "./pages/Profile";
 import SignUp from "./pages/Sign-up";
 import ViewMovie from "./pages/View-movie";
+import Payment from "./pages/Payment"
 
 function App() {
   const router = createBrowserRouter([
@@ -32,6 +33,10 @@ function App() {
     {
       path: "/profile",
       element: <Profile />,
+    },
+    {
+      path: "/payment",
+      element: <Payment />,
     },
   ]);
 
