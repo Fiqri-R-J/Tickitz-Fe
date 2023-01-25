@@ -1,27 +1,24 @@
+# Wellcome to Tickitz Frontend
 
-![](https://raw.githubusercontent.com/kubil-ismail/kuma_mobile/master/android/app/src/main/res/drawable/icon.png)
+![](https://img.shields.io/github/stars/Fiqri-R-J/Tickitz-Fe)
+![](https://img.shields.io/github/forks/Fiqri-R-J/Tickitz-Fe)
+![](https://img.shields.io/github/tag/Fiqri-R-J/Tickitz-Fe)
+![](https://img.shields.io/github/release/Fiqri-R-J/Tickitz-Fe)
+![](https://img.shields.io/github/issues/Fiqri-R-J/Tickitz-Fe)
 
-
-![](https://img.shields.io/github/stars/kubil-ismail/kuma_frontend)
-![](https://img.shields.io/github/forks/kubil-ismail/kuma_frontend)
-![](https://img.shields.io/github/tag/kubil-ismail/kuma_frontend)
-![](https://img.shields.io/github/release/kubil-ismail/kuma_frontend)
-![](https://img.shields.io/github/issues/kubil-ismail/kuma_frontend)
-
-# Kuma Book
-Kuma Books is a forum that unites book readers and exchange their opinions about books that have been read
+Tickitz is aplication for ordering movie ticket 
 
 ## Installation
 
 Clone this repo
 
 ```bash
-https://github.com/kubil-ismail/kuma_frontend.git
+https://github.com/Fiqri-R-J/Tickitz-Fe.git
 ```
 Intall dependency.
 
 ```bash
-cd kuma_frontend
+cd Tickitz-Fe
 npm install
 npm start
 ```
