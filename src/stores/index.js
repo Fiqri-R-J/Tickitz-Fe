@@ -4,6 +4,7 @@ import {
   getDefaultMiddleware,
 } from "@reduxjs/toolkit";
 import authReducer from "./auth";
+import movieReducer from "./movie";
 import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
 import persistReducer from "redux-persist/es/persistReducer";
 import persistStore from "redux-persist/es/persistStore";
@@ -14,12 +15,13 @@ const customizedMiddleware = getDefaultMiddleware({
 
 const rootReducer = combineReducers({
   auth: authReducer,
+  movie: movieReducer,
 });
 
 const persistConfig = {
   key: "root",
   storage,
-  whiteliat: ["auth"],
+  whitelist: ["auth"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
