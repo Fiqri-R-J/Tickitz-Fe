@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from '../components/organisms/Navbar'
+import Footer from '../components/organisms/Footer'
 import "../styles/Payment.css"
 import Vector from "../images/Vector.png"
 import GPay from "../images/logo/GPay.png"
@@ -15,10 +16,10 @@ function Payment(){
     return(
         <div>
         <div id='payment'>
-            <div class="container">
-            {/* <div>
+            <div>
                 <Navbar/>
-            </div> */}
+            </div>
+            <div class="container space">
             <section id='payment-page'>
                 <div class="row">
                     <div class="col-7 left">
@@ -102,8 +103,10 @@ function Payment(){
                     </div>
                     <div class="row justify-content-center cash"><p> Pay via cash. <span> See how it work</span></p></div>
                     </div>
+                    <div class="row">
+                    <div class="col-7">
                     <div class="text-center">
-                    <div class="row justify-content-around but-next">
+                    <div class="row justify-content-end but-next">
                     <div class="col-6">
                     <button type="button" class="next-prev">Prvious step</button>
                     </div>
@@ -112,8 +115,12 @@ function Payment(){
                     </div>
                 </div>
                     </div>
+                    </div>
+                    <div class="col-5"></div>
+                    </div>
                 </section>
             </div>
+            <Footer/>
         </div>
         </div>
     )
