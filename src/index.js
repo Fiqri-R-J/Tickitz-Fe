@@ -5,7 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap";
-import "bootstrap/dist/js/bootstrap.min.js";
+// import "bootstrap/dist/js/bootstrap.min.js";
 import "@fontsource/mulish";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

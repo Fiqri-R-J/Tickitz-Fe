@@ -1,16 +1,16 @@
-#body {
+#body-view-movie {
   background-color: #e5e5e5;
 }
 
-#body #movie .card-movies .card-footer {
+#body-view-movie #movie .card-movies .card-footer {
   background-color: white;
 }
 
-#bodyy {
+#body-view-movie #bodyy {
   padding-top: 100px;
 }
 
-#bodyy .list h2 {
+#body-view-movie #bodyy .list h2 {
   font-family: "Mulish";
   font-style: normal;
   font-weight: 700;
@@ -20,22 +20,22 @@
   color: #000000;
 }
 
-#bodyy .sort {
+#body-view-movie #bodyy .sort {
   border: 1px solid #dedede;
   border-radius: 16px;
   color: #4e4b66;
 }
 
-.row-horizontal-scroll {
+#body-view-movie #body-view-movie .row-horizontal-scroll {
   flex-wrap: unset !important;
   overflow-x: hidden;
 }
 
-.row-horizontal-scroll:hover {
+#body-view-movie #body-view-movie .row-horizontal-scroll:hover {
   overflow-x: scroll;
 }
 
-#movie {
+#body-view-movie #movie {
   border: 1px solid white;
   border-radius: 10px;
   margin-top: 15px;
@@ -45,31 +45,31 @@
   -moz-box-shadow: 16px 26px 21px -10px rgba(162, 162, 162, 0.69);
 }
 
-#movie .card {
+#body-view-movie #movie .card {
   padding: 10px;
   /* margin-top: 20px; */
 }
 
-.card-movies .card-body img {
+#body-view-movie .card-movies .card-body img {
   width: 170px;
   height: 250px;
   border-radius: 10px;
 }
-.card-movies .card-body {
+#body-view-movie .card-movies .card-body {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.card-movies .card-footer {
+#body-view-movie .card-movies .card-footer {
   text-align: center;
   margin-bottom: 20px;
   background-color: #f5f6f8;
   border-top: 0px;
 }
 
-.card-movies .card-footer p,
-.card-movies .card-footer h6 {
+#body-view-movie .card-movies .card-footer p,
+#body-view-movie .card-movies .card-footer h6 {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -78,18 +78,18 @@
   text-shadow: 3px 0px 5px rgba(0, 0, 0, 0.29);
 }
 
-.page {
+#body-view-movie .page {
   padding: 20px;
   margin-top: 15px;
   margin-bottom: 15px;
 }
 
-.page li {
+#body-view-movie .page li {
   margin-left: 5px;
   margin-right: 5px;
 }
 
-.page a {
+#body-view-movie .page a {
   background: #ffffff;
   border: 0.5px solid #dedede;
   border-radius: 8px;
@@ -102,7 +102,7 @@
   color: #4e4b66;
 }
 
-.page a:hover {
+#body-view-movie .page a:hover {
   background: #5f2eea;
   box-shadow: 0px 8px 16px rgba(95, 46, 234, 0.24);
   font-family: "Mulish";

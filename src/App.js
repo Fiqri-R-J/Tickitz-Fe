@@ -6,7 +6,11 @@ import Detail from "./pages/Movies/Detail";
 import Profile from "./pages/Profile";
 import SignUp from "./pages/Sign-up";
 import ViewMovie from "./pages/View-movie";
-import Payment from "./pages/Payment"
+import Payment from "./pages/Payment";
+import { Provider } from "react-redux";
+import store, { persistor } from "./stores/index";
+//import redux-persist
+import { PersistGate } from "redux-persist/integration/react";
 
 function App() {
   const router = createBrowserRouter([
@@ -40,7 +44,13 @@ function App() {
     },
   ]);
 
-  return <RouterProvider router={router} />;
+  return (
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <RouterProvider router={router} />
+      </PersistGate>
+    </Provider>
+  );
 }
 
 export default App;

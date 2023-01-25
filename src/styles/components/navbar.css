@@ -9,6 +9,10 @@
   /* font-family: "Mulish"; */
 }
 
+#navbar .user-profile-picture {
+  border-radius: 50%;
+}
+
 #navbar-home #navbar {
   position: fixed;
 }
@@ -23,9 +27,19 @@
   font-weight: 600;
 }
 
+#navbar .logout {
+  padding-left: 10px;
+  cursor: pointer;
+}
+
 /* css for mobile */
 @media (max-width: 768px) {
   #navbar .img-icon-navbar {
     width: 100px;
+  }
+
+  #navbar .btn-login {
+    margin-top: 10px;
+    margin-left: -50px;
   }
 }

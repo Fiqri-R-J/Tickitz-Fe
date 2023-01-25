@@ -2,10 +2,35 @@ import React, { useState } from "react";
 import Navbar from "../components/organisms/Navbar";
 import Footer from "../components/organisms/Footer";
 import "../styles/profile.css";
+import { useDispatch, useSelector } from "react-redux";
+import * as authReducer from "../stores/auth/index";
+import { useNavigate } from "react-router-dom";
 
 function Profile() {
   const [isShowPassword, setIsShowPassword] = useState(false);
   const [isShowConfirmPassword, setIsShowConfirmPassword] = useState(false);
+  const auth = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const logout = () => {
+    dispatch(
+      authReducer.setAuth({
+        data: null,
+        isAuth: null,
+      })
+    );
+    localStorage.clear();
+    navigate("/");
+  };
+
+  React.useEffect(() => {
+    {
+      if (!auth.isAuth) {
+        navigate("/login");
+      }
+    }
+  }, []);
 
   return (
     <div id="profile">
@@ -20,15 +45,22 @@ function Profile() {
                   <label className="p-2 info">INFO</label>
                   <div className="profile-data mt-2">
                     <img
-                      src="https://www.omgtb.com/wp-content/uploads/2021/04/620_NC4xNjE-1-scaled.jpg"
+                      src={
+                        auth?.data?.profilePicture.includes("https")
+                          ? `${auth?.data?.profilePicture}`
+                          : `https://res.cloudinary.com/daouvimjz/image/upload/${auth?.data?.profilePicture}`
+                      }
                       alt="profile-image"
                     />
-                    <h5 className="mt-4">Jonas El Rodriguez</h5>
+                    <h5 className="mt-4">{auth?.data?.username}</h5>
                     <p>Moviegoers</p>
                   </div>
                 </div>
                 <div className="card-footer">
-                  <button className="btn btn-primary btn-logout mt-2 mb-2">
+                  <button
+                    className="btn btn-primary btn-logout mt-2 mb-2"
+                    onClick={logout}
+                  >
                     Logout
                   </button>
                 </div>
@@ -53,26 +85,30 @@ function Profile() {
 
                       <div>
                         <div className="row mt-4">
-                          <div className="form-group col-lg-6">
-                            <label htmlFor="">First Name</label>
-                            <input type="text" className="form-control" />
+                          <div className="form-group col-lg-6 mb-3">
+                            <label htmlFor="">Username</label>
+                            <input
+                              type="text"
+                              className="form-control"
+                              placeholder={auth?.data?.username}
+                            />
                           </div>
-                          <div className="form-group col-lg-6">
-                            <label htmlFor="">Last Name</label>
-                            <input type="text" className="form-control" />
-                          </div>
-                          <div className="form-group col-lg-6 mt-3">
+                          <div className="form-group col-lg-6 mb-3">
                             <label htmlFor="">E-mail</label>
-                            <input type="text" className="form-control" />
+                            <input
+                              type="text"
+                              className="form-control"
+                              placeholder={auth?.data?.email}
+                            />
                           </div>
-                          <div className="form-group col-lg-6 mt-3">
+                          <div className="form-group col-lg-6 ">
                             <label htmlFor="">Phone Number</label>
                             <div className="input-group mb-3">
                               <span className="input-group-text">+62</span>
                               <input
                                 type="text"
                                 className="form-control"
-                                placeholder="xxx"
+                                placeholder={auth?.data?.email}
                               />
                             </div>
                           </div>
