@@ -10,9 +10,97 @@ import Footer from "../components/organisms/Footer";
 import CardMovie from "../components/molecules/CardMovie";
 import CardMovieData from "../components/molecules/CardMovieData";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useSelector } from "react-redux";
 
 function Home() {
   const navigate = useNavigate();
+  const [showingMovies, setShowingMovies] = useState([]);
+  const [showingMoviesLoading, setShowingMoviesLoading] = useState(false);
+  const [upcomingMovies, setUpcomingMovies] = useState([]);
+  const [upcomingMoviesLoading, setUpcomingMoviesLoading] = useState(false);
+  const movie = useSelector((state) => state.movie);
+
+  // now showing movie
+  React.useEffect(() => {
+    setShowingMoviesLoading(true);
+    axios
+      .get(`${process.env.REACT_APP_URL_BACKEND}/movies/search-join/`)
+      .then((res) => {
+        setShowingMoviesLoading(false);
+
+        const dataScheduleMovies = res?.data?.data;
+
+        // data now showing movies
+        const nowShowingMovies = dataScheduleMovies.filter((value) => {
+          if (
+            new Date(value.date_start) <= new Date() &&
+            new Date(value.date_end) >= new Date()
+          )
+            return value;
+        });
+
+        let itemTempId = 0;
+        setShowingMovies(
+          nowShowingMovies
+            .filter((item) => {
+              if (item.movies_id !== itemTempId) {
+                itemTempId = item.movies_id;
+                return item;
+              }
+            })
+            .slice(0, 7)
+        );
+      })
+      .catch((err) => {
+        console.log(err);
+        setShowingMoviesLoading(true);
+      })
+      .finally(() => {
+        setShowingMoviesLoading(false);
+      });
+  }, []);
+
+  // upcoming movie
+  React.useEffect(() => {
+    setUpcomingMoviesLoading(true);
+    axios
+      .get(`${process.env.REACT_APP_URL_BACKEND}/movies/search-join/`)
+      .then((res) => {
+        setUpcomingMoviesLoading(false);
+
+        //data schedules movie
+        const dataScheduleMovies = res?.data?.data;
+
+        // data upcoming showing movies
+        const dataUpcomingMovies = dataScheduleMovies.filter((value) => {
+          let checkDate =
+            new Date(value.date_start) > new Date() &&
+            new Date(value.date_start).getMonth() === movie.upcomingMonthTab;
+          if (checkDate) return value;
+        });
+
+        let itemTempId = 0;
+        setUpcomingMovies(
+          dataUpcomingMovies
+            .filter((item) => {
+              if (item.movies_id !== itemTempId) {
+                itemTempId = item.movies_id;
+                return item;
+              }
+            })
+            .slice(0, 7)
+        );
+      })
+      .catch((err) => {
+        console.log(err);
+        setUpcomingMoviesLoading(true);
+      })
+      .finally(() => {
+        setUpcomingMoviesLoading(false);
+      });
+  }, [movie.upcomingMonthTab]);
+
   return (
     <div id="home">
       <Navbar />
@@ -64,9 +152,34 @@ function Home() {
           </div>
 
           <div className="row row-horizontal-scroll p-3 mt-4">
-            {[...new Array(8)].map((value, key) => {
-              return <CardMovie srcImage={mShowing1} />;
-            })}
+            {showingMoviesLoading ? (
+              <div className="text-center">
+                <div className="spinner-grow color-primary" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+                <div className="spinner-grow color-primary" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+                <div className="spinner-grow color-primary" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+                <div className="spinner-grow color-primary" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+                <div className="spinner-grow color-primary" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+              </div>
+            ) : (
+              showingMovies.map((value, key) => {
+                return (
+                  <CardMovie
+                    id={value.movies_id}
+                    srcImage={`https://res.cloudinary.com/daouvimjz/image/upload/${value.movie_picture}`}
+                  />
+                );
+              })
+            )}
           </div>
         </div>
       </section>
@@ -92,13 +205,43 @@ function Home() {
           </div>
 
           <div className="row row-horizontal-scroll p-3 mt-4">
-            <MonthTab />
+            <MonthTab monthActive={movie.upcomingMonthTab} />
           </div>
 
           <div className="row row-horizontal-scroll p-3">
-            {[...new Array(8)].map((value, key) => {
-              return <CardMovieData srcImage={mShowing1} />;
-            })}
+            {upcomingMoviesLoading ? (
+              <div className="text-center">
+                <div className="spinner-grow color-primary" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+                <div className="spinner-grow color-primary" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+                <div className="spinner-grow color-primary" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+                <div className="spinner-grow color-primary" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+                <div className="spinner-grow color-primary" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+              </div>
+            ) : upcomingMovies.length > 0 ? (
+              upcomingMovies.map((value, key) => {
+                return (
+                  <CardMovieData
+                    srcImage={mShowing1}
+                    title={"Black Widow"}
+                    category={"Action, Adventure, Sci-fi"}
+                  />
+                );
+              })
+            ) : (
+              <div className="text-center">
+                <h5>No available movie here!</h5>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -109,7 +252,7 @@ function Home() {
         <div className="container join-member">
           <div className="text-center w-join-member">
             <p className="mb-4">
-              Be the vanguard of the <br />{" "}
+              Be the vanguard of the <br />
               <span className="color-primary title-cta">Moviegoers</span>
             </p>
             <div className="row m-0 p-0">

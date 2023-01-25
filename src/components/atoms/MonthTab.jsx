@@ -1,6 +1,11 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import * as movieReducer from "../../stores/movie/index";
 
-function MonthTab() {
+function MonthTab(props) {
+  const { monthActive } = props;
+  const dispatch = useDispatch();
+
   const months = [
     "January",
     "February",
@@ -20,16 +25,15 @@ function MonthTab() {
     return (
       <h6
         key={key}
-        className="me-3"
-        style={{
-          border: "1px solid #5f2eea",
-          padding: "10px 30px 10px 30px",
-          width: "130px",
-          textAlign: "center",
-          borderRadius: "5px",
-          // backgroundColor: "#5f2eea",
-          // color: "white",
-          color: "#5f2eea",
+        className={`me-3 ${
+          months[monthActive] === value ? "month-tab-active" : "month-tab"
+        } `}
+        onClick={() => {
+          dispatch(
+            movieReducer.setUpcomingMonthTab({
+              upcomingMonthTab: key,
+            })
+          );
         }}
       >
         {value}
