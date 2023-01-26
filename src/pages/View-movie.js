@@ -14,9 +14,11 @@ function ViewMovie() {
   const { typeView } = useSelector((state) => state.movie);
   const dispatch = useDispatch();
   const movie = useSelector((state) => state.movie);
+  const [isLoading, setIsLoading] = useState(false);
 
   // now showing movie
   React.useEffect(() => {
+    setIsLoading(true);
     axios
       .get(`${process.env.REACT_APP_URL_BACKEND}/movies/search-join/`)
       .then((res) => {
@@ -65,11 +67,13 @@ function ViewMovie() {
             upcomingMonthTab: new Date().getMonth(),
           })
         );
+      setIsLoading(false);
       })
       .catch((err) => {
+        setIsLoading(false);
         console.log(err);
       })
-      .finally(() => {});
+      .finally(() => setIsLoading(false));
   }, []);
 
   return (
@@ -116,18 +120,38 @@ function ViewMovie() {
           </div>
           <section id="movie">
             <div class="row p-5">
-              {showingMovies.map((value, key) => {
-                return (
-                  <div class="col-3 mb-4">
-                    <CardMovieData
-                      srcImage={`https://res.cloudinary.com/daouvimjz/image/upload/${value.movie_picture}`}
-                      title={value.movie_name}
-                      category={value.category}
-                      id={value.movies_id}
-                    />
+              {isLoading ? (
+                <div className="text-center">
+                  <div className="spinner-grow color-primary" role="status">
+                    <span className="visually-hidden">Loading...</span>
                   </div>
-                );
-              })}
+                  <div className="spinner-grow color-primary" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                  </div>
+                  <div className="spinner-grow color-primary" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                  </div>
+                  <div className="spinner-grow color-primary" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                  </div>
+                  <div className="spinner-grow color-primary" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                  </div>
+                </div>
+              ) : (
+                showingMovies.map((value, key) => {
+                  return (
+                    <div class="col-3 mb-4">
+                      <CardMovieData
+                        srcImage={`https://res.cloudinary.com/daouvimjz/image/upload/${value.movie_picture}`}
+                        title={value.movie_name}
+                        category={value.category}
+                        id={value.movies_id}
+                      />
+                    </div>
+                  );
+                })
+              )}
             </div>
           </section>
           <div class="page">
@@ -141,16 +165,6 @@ function ViewMovie() {
                 <li class="page-item">
                   <a class="page-link" href="#">
                     1
-                  </a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">
-                    2
-                  </a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">
-                    3
                   </a>
                 </li>
                 <li class="page-item">

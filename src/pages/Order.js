@@ -2,17 +2,19 @@ import React from "react";
 import Navbar from "../components/organisms/Navbar";
 import Footer from "../components/organisms/Footer";
 import "../styles/order.css";
-import Cineone21 from "../images/cineone21-icon.png"
-import Ebuid from "../images/ebuid-icon.png"
-import Hiflix from "../images/hiflix-icon.png"
+import Cineone21 from "../images/cineone21-icon.png";
+import Ebuid from "../images/ebuid-icon.png";
+import Hiflix from "../images/hiflix-icon.png";
+import { useNavigate } from "react-router-dom";
 
 function Order() {
+  const navigate = useNavigate();
   return (
     <div>
       <Navbar />
 
       <section id="order">
-        <div class="container">
+        <div class="container" style={{ marginTop: "100px" }}>
           <div class="row top">
             <div class="col-8 left-side">
               <h3>Movie Selected</h3>
@@ -21,7 +23,11 @@ function Order() {
                   <div class="row justify-content-between">
                     <div class="col-6 left-top">Spider-Man: Homecoming</div>
                     <div class="col-4 right-top">
-                      <button type="button" class="button-change">
+                      <button
+                        type="button"
+                        class="button-change"
+                        onClick={() => navigate("/view-movie")}
+                      >
                         Change Movie
                       </button>
                     </div>
@@ -388,67 +394,57 @@ function Order() {
                 </div>
               </div>
               <div class="container text-center">
-              <div class="row justify-content-between but-checkout">
-                <div class="col-4">
-                <button type="button" class="checkout">Change Your Movie</button>
+                <div class="row justify-content-between but-checkout">
+                  <div class="col-4">
+                    <button
+                      type="button"
+                      class="checkout"
+                      onClick={() => navigate("/view-movie")}
+                    >
+                      Change Your Movie
+                    </button>
+                  </div>
+                  <div class="col-4">
+                    <button
+                      type="button"
+                      class="checkout"
+                      onClick={() => navigate("/payment")}
+                    >
+                      Checkout Now
+                    </button>
+                  </div>
                 </div>
-                <div class="col-4">
-                <button type="button" class="checkout">Checkout Now</button>
-                </div>
-            </div>
-            </div>
+              </div>
             </div>
             <div class="col-4 right-side">
-                <h3>Order Info</h3>
-                <div class="border-right">
-                    <div class="container text-center">
-                    <img src={Cineone21}alt="cinema"/>
-                    <h3>CineOne21 Cinema</h3>
-                    <div class="row justify-content-between">
-                        <div class="col-5 left-text">
-                        Movie selected
-                        </div>
-                        <div class="col-7 right-text">
-                        Spider-Man: Homecoming
-                        </div>
-                    </div>
-                    <div class="row justify-content-between">
-                        <div class="col-8 left-text">
-                        Tuesday, 07 July 2020
-                        </div>
-                        <div class="col-3 right-text">
-                        02:00
-                        </div>
-                    </div>
-                    <div class="row justify-content-between">
-                        <div class="col-8 left-text">
-                        One ticket price
-                        </div>
-                        <div class="col-3 right-text">
-                        $10
-                        </div>
-                    </div>
-                    <div class="row justify-content-between">
-                        <div class="col-6 left-text">
-                        Seat choosed
-                        </div>
-                        <div class="col-4 right-text">
-                        C4, C5, C6
-                        </div>
-                    </div>
-                    <div class="border-line">
-
-                    </div>
-                    <div class="row justify-content-between">
-                        <div class="col-6 left-total">
-                        Total Payment
-                        </div>
-                        <div class="col-3 right-total">
-                        $30
-                        </div>
-                    </div>
-                    </div>
+              <h3>Order Info</h3>
+              <div class="border-right">
+                <div class="container text-center">
+                  <img src={Cineone21} alt="cinema" />
+                  <h3>CineOne21 Cinema</h3>
+                  <div class="row justify-content-between">
+                    <div class="col-5 left-text">Movie selected</div>
+                    <div class="col-7 right-text">Spider-Man: Homecoming</div>
+                  </div>
+                  <div class="row justify-content-between">
+                    <div class="col-8 left-text">Tuesday, 07 July 2020</div>
+                    <div class="col-3 right-text">02:00</div>
+                  </div>
+                  <div class="row justify-content-between">
+                    <div class="col-8 left-text">One ticket price</div>
+                    <div class="col-3 right-text">$10</div>
+                  </div>
+                  <div class="row justify-content-between">
+                    <div class="col-6 left-text">Seat choosed</div>
+                    <div class="col-4 right-text">C4, C5, C6</div>
+                  </div>
+                  <div class="border-line"></div>
+                  <div class="row justify-content-between">
+                    <div class="col-6 left-total">Total Payment</div>
+                    <div class="col-3 right-total">$30</div>
+                  </div>
                 </div>
+              </div>
             </div>
           </div>
         </div>

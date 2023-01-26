@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import * as movieReducer from "../../stores/movie/index";
+import * as movieReducer from "../../stores/movie/";
 
 function MonthTab(props) {
   const { monthActive } = props;

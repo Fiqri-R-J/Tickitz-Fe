@@ -8,11 +8,13 @@ import iconCineone21 from "../../images/cineone21-icon.png";
 import iconHiflix from "../../images/hiflix-icon.png";
 import "../../styles/detail.css";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function Detail() {
   const { detail } = useSelector((state) => state.movie);
   const [cinema, setCinema] = useState([]);
   const [order, setOrder] = useState({ movies_id: null, schedules_id: null });
+  const navigate = useNavigate();
   const month = [
     "January",
     "February",
@@ -204,7 +206,10 @@ function Detail() {
                       </div>
                       <div className="row">
                         <div className="d-flex justify-content-center">
-                          <button className="btn btn-sm btn-booking">
+                          <button
+                            className="btn btn-sm btn-booking"
+                            onClick={() => navigate("/order-page")}
+                          >
                             Book now
                           </button>
                         </div>
