@@ -5,13 +5,58 @@ import "../styles/profile.css";
 import { useDispatch, useSelector } from "react-redux";
 import * as authReducer from "../stores/auth/index";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Profile() {
   const [isShowPassword, setIsShowPassword] = useState(false);
   const [isShowConfirmPassword, setIsShowConfirmPassword] = useState(false);
   const auth = useSelector((state) => state.auth);
+  const [username, setUsername] = useState(auth.username);
+  const [email, setEmail] = useState(auth.email);
+  const [phone_number, setPhoneNumber] = useState(auth.phoneNumber);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [success, setSuccess] = useState(false);
+
+  const update = () => {
+    setSuccess(false);
+    const data = {
+      username,
+      email,
+      phone_number,
+    };
+
+    const config = {
+      headers: {
+        // "Content-Type": "multipart/form-data",
+        Authorization: `Bearer ${auth.data.accessToken}`,
+      },
+    };
+
+    axios
+      .patch(
+        `${process.env.REACT_APP_URL_BACKEND}/users/edit/${auth.data.users_id}`,
+        data,
+        config
+      )
+      .then((res) => {
+        setSuccess(true);
+        console.log(res);
+        // store data auth to redux
+        // dispatch(
+        //   authReducer.setAuth({
+        //     data: res?.data?.data,
+        //     email: res?.data?.data?.email,
+        //     username: res?.data?.data?.username,
+        //     phoneNumber: res?.data?.data?.phone_number,
+        //     isAuth: true,
+        //   })
+        // );
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   const logout = () => {
     dispatch(
@@ -76,6 +121,24 @@ function Profile() {
                 </div>
               </div>
 
+              {success ? (
+                <div
+                  class="alert alert-success alert-dismissible fade show mt-4"
+                  role="alert"
+                >
+                  Data berhasil diubah!
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert"
+                    aria-label="Close"
+                    onClick={() => setSuccess(false)}
+                  ></button>
+                </div>
+              ) : (
+                ""
+              )}
+
               <div>
                 <div className="row bg-white rounded mt-4">
                   <div className="detail-information p-3">
@@ -91,6 +154,9 @@ function Profile() {
                               type="text"
                               className="form-control"
                               placeholder={auth?.data?.username}
+                              onChange={(event) =>
+                                setUsername(event.target.value)
+                              }
                             />
                           </div>
                           <div className="form-group col-lg-6 mb-3">
@@ -99,6 +165,7 @@ function Profile() {
                               type="text"
                               className="form-control"
                               placeholder={auth?.data?.email}
+                              onChange={(event) => setEmail(event.target.value)}
                             />
                           </div>
                           <div className="form-group col-lg-6 ">
@@ -108,7 +175,10 @@ function Profile() {
                               <input
                                 type="text"
                                 className="form-control"
-                                placeholder={auth?.data?.email}
+                                placeholder={auth?.data?.phoneNumber}
+                                onChange={(event) =>
+                                  setPhoneNumber(event.target.value)
+                                }
                               />
                             </div>
                           </div>
@@ -118,7 +188,10 @@ function Profile() {
                   </div>
                 </div>
 
-                <button className="btn btn-update-information mt-2">
+                <button
+                  className="btn btn-update-information mt-2"
+                  onClick={update}
+                >
                   Update changes
                 </button>
               </div>

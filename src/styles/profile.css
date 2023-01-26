@@ -55,6 +55,7 @@
 }
 
 #profile .card-profile .card-body img {
+  height: 150px;
   width: 50%;
   border-radius: 50%;
   box-shadow: 5px 4px 8px -3px rgba(129, 129, 129, 0.75);

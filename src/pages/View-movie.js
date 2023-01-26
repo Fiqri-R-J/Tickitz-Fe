@@ -1,12 +1,77 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/View-movie.css";
 import Navbar from "../components/organisms/Navbar.jsx";
 import MonthTab from "../components/atoms/MonthTab.jsx";
 import CardMovieData from "../components/molecules/CardMovieData.jsx";
 import mShowing1 from "../images/home-page/movies-showing-1.jpg";
 import Footer from "../components/organisms/Footer.jsx";
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+import * as movieReducer from "../stores/movie/index";
 
 function ViewMovie() {
+  const [showingMovies, setShowingMovies] = useState([]);
+  const { typeView } = useSelector((state) => state.movie);
+  const dispatch = useDispatch();
+  const movie = useSelector((state) => state.movie);
+
+  // now showing movie
+  React.useEffect(() => {
+    axios
+      .get(`${process.env.REACT_APP_URL_BACKEND}/movies/search-join/`)
+      .then((res) => {
+        const dataScheduleMovies = res?.data?.data;
+
+        // data now showing movies
+        const nowShowingMovies = dataScheduleMovies.filter((value) => {
+          if (
+            new Date(value.date_start) <= new Date() &&
+            new Date(value.date_end) >= new Date()
+          )
+            return value;
+        });
+
+        // data upcoming showing movies
+        const dataUpcomingMovies = dataScheduleMovies.filter((value) => {
+          let checkDate =
+            new Date(value.date_start) > new Date() &&
+            new Date(value.date_start).getMonth() === movie.upcomingMonthTab;
+          if (checkDate) return value;
+        });
+
+        let itemTempId = 0;
+        if (typeView === "now") {
+          setShowingMovies(
+            nowShowingMovies.filter((item) => {
+              if (item.movies_id !== itemTempId) {
+                itemTempId = item.movies_id;
+                return item;
+              }
+            })
+          );
+        } else {
+          setShowingMovies(
+            dataUpcomingMovies.filter((item) => {
+              if (item.movies_id !== itemTempId) {
+                itemTempId = item.movies_id;
+                return item;
+              }
+            })
+          );
+        }
+
+        dispatch(
+          movieReducer.setUpcomingMonthTab({
+            upcomingMonthTab: new Date().getMonth(),
+          })
+        );
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {});
+  }, []);
+
   return (
     <div>
       <div id="body-view-movie">
@@ -28,9 +93,9 @@ function ViewMovie() {
                         aria-label="Default select example"
                       >
                         <option selected>Sort</option>
-                        <option value="1">One</option>
+                        {/* <option value="1">One</option>
                         <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option value="3">Three</option> */}
                       </select>
                     </div>
                     <div class="col">
@@ -51,10 +116,15 @@ function ViewMovie() {
           </div>
           <section id="movie">
             <div class="row p-5">
-              {[...new Array(8)].map((value, key) => {
+              {showingMovies.map((value, key) => {
                 return (
                   <div class="col-3 mb-4">
-                    <CardMovieData srcImage={mShowing1} />
+                    <CardMovieData
+                      srcImage={`https://res.cloudinary.com/daouvimjz/image/upload/${value.movie_picture}`}
+                      title={value.movie_name}
+                      category={value.category}
+                      id={value.movies_id}
+                    />
                   </div>
                 );
               })}

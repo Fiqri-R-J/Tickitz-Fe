@@ -11,7 +11,8 @@ import CardMovie from "../components/molecules/CardMovie";
 import CardMovieData from "../components/molecules/CardMovieData";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import * as movieReducer from "../stores/movie/index";
 
 function Home() {
   const navigate = useNavigate();
@@ -20,6 +21,7 @@ function Home() {
   const [upcomingMovies, setUpcomingMovies] = useState([]);
   const [upcomingMoviesLoading, setUpcomingMoviesLoading] = useState(false);
   const movie = useSelector((state) => state.movie);
+  const dispatch = useDispatch();
 
   // now showing movie
   React.useEffect(() => {
@@ -50,6 +52,12 @@ function Home() {
               }
             })
             .slice(0, 7)
+        );
+
+        dispatch(
+          movieReducer.setUpcomingMonthTab({
+            upcomingMonthTab: new Date().getMonth(),
+          })
         );
       })
       .catch((err) => {
@@ -143,7 +151,10 @@ function Home() {
               <div className="float-end">
                 <h6
                   className="color-primary click"
-                  onClick={() => navigate("/view-movie")}
+                  onClick={() => {
+                    dispatch(movieReducer.setTypeView({ typeView: "now" }));
+                    navigate("/view-movie");
+                  }}
                 >
                   View All
                 </h6>
@@ -196,7 +207,10 @@ function Home() {
               <div className="float-end">
                 <h6
                   className="color-primary click"
-                  onClick={() => navigate("/view-movie")}
+                  onClick={() => {
+                    dispatch(movieReducer.setTypeView({ typeView: "now" }));
+                    navigate("/view-movie");
+                  }}
                 >
                   View All
                 </h6>
@@ -231,9 +245,9 @@ function Home() {
               upcomingMovies.map((value, key) => {
                 return (
                   <CardMovieData
-                    srcImage={mShowing1}
-                    title={"Black Widow"}
-                    category={"Action, Adventure, Sci-fi"}
+                    srcImage={`https://res.cloudinary.com/daouvimjz/image/upload/${value.movie_picture}`}
+                    title={value.movie_name}
+                    category={value.category}
                   />
                 );
               })
