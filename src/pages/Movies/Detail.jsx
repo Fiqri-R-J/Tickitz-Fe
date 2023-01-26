@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import CardMovie from "../../components/molecules/CardMovie";
 import Navbar from "../../components/organisms/Navbar";
 import mShowing1 from "../../images/home-page/movies-showing-1.jpg";
@@ -6,11 +6,53 @@ import Footer from "../../components/organisms/Footer";
 import iconEbuid from "../../images/ebuid-icon.png";
 import iconCineone21 from "../../images/cineone21-icon.png";
 import iconHiflix from "../../images/hiflix-icon.png";
-
 import "../../styles/detail.css";
-import CardMovieData from "../../components/molecules/CardMovieData";
+import { useSelector } from "react-redux";
 
 function Detail() {
+  const { detail } = useSelector((state) => state.movie);
+  const [cinema, setCinema] = useState([]);
+  const [order, setOrder] = useState({ movies_id: null, schedules_id: null });
+  const month = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  const convertDate = (date) => {
+    let newDate = new Date(date);
+    return `${newDate.getDate()} ${
+      month[newDate.getMonth()]
+    }, ${newDate.getFullYear()}`;
+  };
+
+  const checkout = (item) => {
+    setOrder({ movies_id: item.value, schedules_id: item.schedules_id });
+  };
+
+  React.useEffect(() => {
+    const cinemas = [];
+    const dataCinema = [];
+
+    detail.map((item) => {
+      if (cinemas.indexOf(item.cinema) === -1) {
+        cinemas.push(item.cinema);
+        dataCinema.push(item);
+      }
+    });
+
+    setCinema(dataCinema);
+  }, []);
+
   return (
     <div id="detail-movie">
       <Navbar />
@@ -21,38 +63,41 @@ function Detail() {
           <div className="row">
             {/* left-side */}
             <div className="col-lg-4 image-movie-data">
-              <CardMovie srcImage={mShowing1} />
+              <CardMovie
+                srcImage={`https://res.cloudinary.com/daouvimjz/image/upload/${detail?.[0].movie_picture}`}
+              />
             </div>
 
             {/* right-side */}
             <div className="col-lg-8 data-movie-description">
               <div>
-                <h2>Spider-Man: Homecoming</h2>
-                <h5>Adventure, Action</h5>
+                <h2>{detail?.[0].movie_name}</h2>
+                <h5>{detail?.[0].category}</h5>
               </div>
 
               <div className="mt-5">
                 <div className="row">
                   <div className="col-lg-3">
                     <p className="mini-title">Release Date</p>
-                    <p> June 28, 2017</p>
+                    <p> {convertDate(detail?.[0].release_date)}</p>
                   </div>
                   <div className="col-lg-9">
                     <p className="mini-title">Directed by</p>
-                    <p>John Watss</p>
+                    <p>{detail?.[0].director}</p>
                   </div>
                 </div>
 
                 <div className="row mt-2">
                   <div className="col-lg-3">
                     <p className="mini-title">Duration</p>
-                    <p className="mini-desc">2 hours 13 minutes</p>
+                    <p className="mini-desc">
+                      {detail?.[0].duration_hour} hours{" "}
+                      {detail?.[0].duration_mins} minutes
+                    </p>
                   </div>
                   <div className="col-lg-9">
                     <p className="mini-title">Casts</p>
-                    <p className="mini-desc">
-                      Tom Holland, Michael Keaton, Robert Downey Jr., Sumanto
-                    </p>
+                    <p className="mini-desc">{detail?.[0].casts}</p>
                   </div>
                 </div>
 
@@ -62,16 +107,7 @@ function Detail() {
                   <h5>
                     <b>Synopsis</b>
                   </h5>
-                  <p className="synopsis-description">
-                    Thrilled by his experience with the Avengers, Peter returns
-                    home, where he lives with his Aunt May, under the watchful
-                    eye of his new mentor Tony Stark, Peter tries to fall back
-                    into his normal daily routine - distracted by thoughts of
-                    proving himself to be more than just your friendly
-                    neighborhood Spider-Man - but when the Vulture emerges as a
-                    new villain, everything that Peter holds most important will
-                    be threatened.
-                  </p>
+                  <p className="synopsis-description">{detail?.[0].synopsis}</p>
                 </div>
               </div>
             </div>
@@ -94,8 +130,15 @@ function Detail() {
             <div className="d-flex justify-content-center">
               <div className="col-lg-4">
                 <div className="d-flex justify-content-center">
-                  <input type="date" className="form-control m-2" />
-                  <div class="input-group m-2">
+                  <select name="" id="" className="form-control m-2 w-100">
+                    <option value="10:00am">10:00am</option>
+                    <option value="12:00pm">12:00pm</option>
+                    <option value="14:00pm">14:00pm</option>
+                    <option value="16:00pm">16:00pm</option>
+                    <option value="18:00pm">18:00pm</option>
+                    <option value="20:00pm">20:00pm</option>
+                  </select>
+                  <div className="input-group m-2">
                     <select name="" id="" className="form-control w-100">
                       <option value="" selected disabled>
                         Location
@@ -109,8 +152,9 @@ function Detail() {
               </div>
             </div>
           </div>
+
           <div className="row mt-5">
-            {[...new Array(6)].map((value, key) => {
+            {cinema.map((value, key) => {
               return (
                 <div className="col-lg-4 mb-3">
                   <div className="card card-schedule">
@@ -118,35 +162,44 @@ function Detail() {
                       <div className="row">
                         <div className="col-lg-5 d-flex justify-content-center align-items-center ">
                           <img
-                            src={iconEbuid}
+                            src={
+                              value.cinema === "ebv.id"
+                                ? iconEbuid
+                                : value.cinema === "hiflix"
+                                ? iconHiflix
+                                : iconCineone21
+                            }
                             className="icon-cinema"
                             alt="icon-cinema"
                           />
                         </div>
                         <div className="col-lg-7">
                           <div className="row">
-                            <h4 className="title-cinema">ebv.id</h4>
-                            <p className="address-cinema">
-                              Whatever street No. 12, South Purwokerto
-                            </p>
+                            <h4 className="title-cinema">{value.cinema}</h4>
+                            <p className="address-cinema">{value.location}</p>
                           </div>
                         </div>
                       </div>
                     </div>
                     <div className="card-footer">
                       <div className="row">
-                        <div className="col-lg-3 col-3 time">08:30am</div>
-                        <div className="col-lg-3 col-3 time">10:00am</div>
-                        <div className="col-lg-3 col-3 time">12:00pm</div>
-                        <div className="col-lg-3 col-3 time">02:00pm</div>
-                        <div className="col-lg-3 col-3 time">04:00pm</div>
-                        <div className="col-lg-3 col-3 time">06:00pm</div>
-                        <div className="col-lg-3 col-3 time">08:00pm</div>
+                        {/* {detail.reverse().map((item) => {
+                          if (item.cinema === value.cinema) {
+                            return (
+                              <div
+                                className="col-lg-3 col-3 time"
+                                onClick={checkout(item)}
+                              >
+                                {item.time}
+                              </div>
+                            );
+                          }
+                        })} */}
                       </div>
                       <div className="row mt-4">
                         <div className="d-flex justify-content-between">
                           <h5 className="ps-2">Price</h5>
-                          <h5 className="">$10.00/seat</h5>
+                          <h5 className="">{value.price}</h5>
                         </div>
                       </div>
                       <div className="row">

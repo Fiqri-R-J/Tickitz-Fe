@@ -29,8 +29,10 @@
 }
 
 #data-movie .card-movies .card-body img {
-  width: 250px;
+  margin-top: 25px;
+  width: 270px;
   height: 410px;
+  object-fit: cover;
 }
 
 #showtime-movie {
@@ -57,6 +59,27 @@
 }
 
 #showtime-movie .card-schedule .time {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 11pt;
+  cursor: pointer;
+}
+
+#showtime-movie .card-schedule .time-click {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 11pt;
+  cursor: pointer;
+  border: 1px solid #5f2eea;
+}
+
+#showtime-movie .card-schedule .icon-cinema {
+  width: 100%;
+  object-fit: contain;
   height: 40px;
   display: flex;
   justify-content: center;

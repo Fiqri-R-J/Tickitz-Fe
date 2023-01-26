@@ -37,6 +37,9 @@ function RightSideAuth() {
         dispatch(
           authReducer.setAuth({
             data: res?.data?.data,
+            email: res?.data?.data?.email,
+            username: res?.data?.data?.username,
+            phoneNumber: res?.data?.data?.phone_number,
             isAuth: true,
           })
         );
