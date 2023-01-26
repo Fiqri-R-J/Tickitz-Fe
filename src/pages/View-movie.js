@@ -67,7 +67,7 @@ function ViewMovie() {
             upcomingMonthTab: new Date().getMonth(),
           })
         );
-        setIsLoading(false);
+      setIsLoading(false);
       })
       .catch((err) => {
         setIsLoading(false);

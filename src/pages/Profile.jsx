@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import iconCineone21 from "../images/cineone21-icon.png";
 
+
 function Profile() {
   const [isShowPassword, setIsShowPassword] = useState(false);
   const [isShowConfirmPassword, setIsShowConfirmPassword] = useState(false);
@@ -19,6 +20,7 @@ function Profile() {
   const navigate = useNavigate();
   const [success, setSuccess] = useState(false);
   const [tab, setTab] = useState("account");
+
 
   const update = () => {
     setSuccess(false);
@@ -139,6 +141,7 @@ function Profile() {
                 </div>
               </div>
 
+
               {tab === "order-history" ? (
                 <div>
                   <div className="row bg-white rounded mt-3">
@@ -200,6 +203,7 @@ function Profile() {
                                 src={iconCineone21}
                                 alt="icon-cinema-profile"
                                 style={{ width: "120px" }}
+
                               />
                             </div>
                           </div>
@@ -242,14 +246,13 @@ function Profile() {
                     ""
                   )}
 
-                  <div>
+                   <div>
                     <div className="row bg-white rounded mt-4">
                       <div className="detail-information p-3">
                         <div>
                           <p>Detail Information</p>
                           <hr />
-
-                          <div>
+                           <div>
                             <div className="row mt-4">
                               <div className="form-group col-lg-6 mb-3">
                                 <label htmlFor="">Username</label>
