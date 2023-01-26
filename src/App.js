@@ -8,6 +8,7 @@ import SignUp from "./pages/Sign-up";
 import ViewMovie from "./pages/View-movie";
 import Payment from "./pages/Payment";
 import Order from "./pages/Order";
+import Ticket from "./pages/Ticket";
 import { Provider } from "react-redux";
 import store, { persistor } from "./stores/index";
 //import redux-persist
@@ -46,6 +47,10 @@ function App() {
     {
       path: "/order-page",
       element: <Order />,
+    },
+    {
+      path: "/ticket",
+      element: <Ticket />,
     },
   ]);
 

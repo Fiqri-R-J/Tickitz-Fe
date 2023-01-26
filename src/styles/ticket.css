@@ -1,0 +1,32 @@
+#Ticket{
+    background: #E5E5E5;
+}
+
+#Ticket .border-ticket{
+    margin-top: 100px;
+    border: 2px;
+    background: #ffffff;
+    border-radius: 8px;
+    width: 900px;
+    height: 500px;
+}
+
+#Ticket .border-ticket .text-ticket{
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: 0.25px;
+    color: #14142B;
+    margin-top: 100px;
+}
+
+#Ticket .border-ticket .ticket-card{
+    border: 1px solid #DEDEDE;
+    box-sizing: border-box;
+    border-radius: 16px;
+    width: 800px;
+    height: 300px;
+    margin-left: 50px;
+}
