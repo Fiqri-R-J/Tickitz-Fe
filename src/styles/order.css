@@ -1,0 +1,232 @@
+#order{
+    background-color: #E5E5E5;
+}
+
+#order .top{
+    margin-top: 100px;
+}
+
+.left-side .border-top{
+    border: 2px;
+    background: #FFFFFF;
+    border-radius: 6px;
+    width: 700px;
+    height: 100px;
+    margin-bottom: 70px;
+}
+
+.left-side h3{
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.25px;
+    color: #14142B;
+    margin-bottom: 20px;
+}
+
+.left-side .left-top{
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.25px;
+    color: #000000;
+    margin-top:30px;
+}
+
+.left-side .right-top .button-change{
+    background: #EFF0F7;
+    opacity: 0.8;
+    border: 8px solid #EFF0F7;
+    border-radius: 4px;
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.75px;
+    color: #5F2EEA;
+    margin-top:30px;
+}
+
+.left-side .right-top .button-change:hover{
+    background: #5F2EEA;
+    color: #EFF0F7;
+}
+
+.left-side .border-bot{
+    border: 2px;
+    background: #FFFFFF;
+    border-radius: 6px;
+    width: 700px;
+    height: 600px;
+}
+
+.left-side .border-bot .button-seat{
+    background: #EFF0F7;
+    border: 8px solid #EFF0F7;
+    border-radius: 4px;
+    color: #5F2EEA;
+    width: 185px;
+    font-family: 'Mulish';
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.left-side .border-bot .screen{
+    margin-top: 50px;
+    background: #D6D8E7;
+    border-radius: 4px;
+    text-align: center;
+    width: 550px;
+    color: #5F2EEA;
+    font-family: 'Mulish';
+}
+
+.left-side .border-bot .seat-mar{
+    margin-top: 80px;
+}
+
+.left-side .border-bot .seat{
+    background: #D6D8E7;
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    margin-left: 10px;
+}
+
+.left-side .border-bot .seat-pos{
+    margin-top: 10px;
+}
+
+#order .checkout{
+    box-sizing: border-box;
+    border: 2px solid #5F2EEA;
+    border-radius: 4px;
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: center;
+    letter-spacing: 0.75px;
+    color: #5F2EEA;
+    width: 200px;
+    height: 50px;
+    margin-top: 30px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+}
+
+#order .checkout:hover{
+    background: #5F2EEA;
+    border-radius: 4px;
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: center;
+    letter-spacing: 0.75px;
+    color: #F7F7FC
+}
+
+#order .right-side .border-right{
+    border: 2px;
+    margin-top: 20px;
+    background: #FFFFFF;
+    box-shadow: 0px 8px 16px rgba(186, 186, 186, 0.24);
+    border-radius: 6px;
+    width: 400px;
+    height: 500px;
+    display: flex;
+    padding: 20px;
+}
+
+.right-side .border-right img{
+    margin-top: 30px;
+}
+
+.right-side .border-right h3{
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 34px;
+    text-align: center;
+    letter-spacing: 0.75px;
+    color: #14142B;
+    margin-top: 40px;
+}
+
+.right-side .border-right .left-text{
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.75px;
+    color: #6B6B6B;
+    margin-top: 30px;
+}
+
+.right-side .border-right .right-text{
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    letter-spacing: 0.75px;
+    color: #14142B;
+    margin-top: 30px;
+}
+
+.right-side .border-right .border-line{
+    border: 1px solid #E6E6E6;
+    width: 400px;
+    margin-top: 50px
+}
+
+.right-side .border-right .left-total{
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 34px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.75px;
+    color: #000000;
+    margin-top: 30px;
+}
+
+.right-side .border-right .right-total{
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    letter-spacing: 0.25px;
+    color: #5F2EEA;
+    margin-top: 30px;
+}
