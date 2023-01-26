@@ -11,6 +11,13 @@ function Navbar() {
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
 
+  React.useEffect(() => {
+    const validation = window.location.pathname !== "/" && !auth.isAuth;
+    if (validation) {
+      navigate("/login");
+    }
+  });
+
   return (
     <div id="navbar-home">
       <nav id="navbar" className="navbar navbar-expand-lg fixed-top">

@@ -38,7 +38,7 @@
 }
 
 #profile #content .menu-profile button {
-  border: 0px solid #5f2eea !important;
+  border: 0px;
   background-color: white;
   height: 50px;
   font-size: 11pt;
@@ -52,6 +52,10 @@
   width: 100%;
   margin-top: -10px;
   text-align: center;
+}
+
+#profile .tab-active {
+  border-bottom: 2px solid #5f2eea !important;
 }
 
 #profile .card-profile .card-body img {
